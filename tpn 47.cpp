@@ -8,7 +8,7 @@ int main()
   string  msj="NO ES ABUNDANTE";
   int n1,i;
   
-    cout << "Ingrese un número" << endl;
+    cout << "Ingrese hasta qué número quiere ver los números abundantes" << endl;
     cin >> n1;
     for(i=1;i<=n1;i++)
     {
