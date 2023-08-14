@@ -1,0 +1,20 @@
+#include <iostream>
+
+using namespace std;
+float ConvertirPesos (int dolares);
+int main()
+{ int d;
+
+  cout << "Ingrese una cantidad de dolares" <<endl;
+  cin>>d;
+  
+  cout <<ConvertirPesos(d)<<endl;
+
+    return 0;
+}
+
+float ConvertirPesos (int dolares){
+    int total;
+    total=dolares*331.37;
+    return total;
+}
