@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+bool EsBisiesto(int anio);
+int main(){
+int a;
+string msg="No es bisiesto";
+cout<<"Ingrese número de año (entre el año 2020 y 3000)"<<endl;
+cin>>a;
+   if (EsBisiesto(a)){
+		msg="Es bisiesto";
+	}
+	cout<<msg<<endl;
+
+    return 0;
+}
+ bool EsBisiesto(int anio){
+     bool bisiesto=true;
+     if(anio%4==0) {
+        bisiesto=true;
+     }
+     else{
+         bisiesto=false;
+     }
+     
+     return bisiesto;
+ }
