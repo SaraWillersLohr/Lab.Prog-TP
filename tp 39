@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+int CalcularMax (int a, int b, int c);
+int main()
+{
+    int n1, n2, n3;
+    std::cout << "Ingrese el número 1" << std::endl;
+    cin>>n1;
+      std::cout << "Ingrese el número 2" << std::endl;
+    cin>>n2;
+    std::cout << "Ingrese el número 3" << std::endl;
+    cin>>n3;
+    cout<<CalcularMax(n1,n2,n3)<<endl;
+    return 0;
+}
+int CalcularMax (int a, int b, int c)
+{
+    int max;
+ if (a>b && a>c)   
+    {
+        max=a;
+    }
+
+if (b>a && b>c)   
+    {
+        max=b;
+    }
+if (c>a && c>b)   
+    {
+        max=c;
+    }
+
+return max;
+}
