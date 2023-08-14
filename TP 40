@@ -1,0 +1,20 @@
+#include <iostream>
+
+using namespace std;
+int CalcularDoble (int a);
+int main()
+{ int n;
+
+  cout << "Ingrese un número" <<endl;
+  cin>>n;
+  
+  cout <<CalcularDoble(n)<<endl;
+
+    return 0;
+}
+
+int CalcularDoble (int a){
+    int doble;
+    doble=a*2;
+    return doble;
+}
