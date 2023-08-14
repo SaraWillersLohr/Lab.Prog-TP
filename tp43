@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+string ObtenerDDD(int cod);
+int main()
+{ int n;
+std::cout << "Ingrese el numero de codigo de área" << std::endl;
+std::cin >> n;
+std::cout << ObtenerDDD(n) << std::endl;
+    return 0;
+}
+string ObtenerDDD(int cod)
+{
+ string destino="NO ENCONTRADO";
+   if(cod==61){
+    destino= "Brasilia";
+    }
+   if (cod==71){
+        destino="Salvador";
+    }
+   if (cod==11){
+        destino="Sao Paulo" ;
+    } 
+   if (cod==21){
+        destino="Rio de Janeiro";
+    }
+   if (cod==32){
+        destino="Juiz de Fora";
+    }
+   if (cod==19){
+        cout << "El destino es Campinas";
+    } 
+   if (cod==27){
+        cout << "El destino es Vitoria";
+    }
+   if (cod==31){
+        destino="Belo Horizonte";
+    }
+    else {
+        destino="DDD no encontrado";
+    }
+ return destino;
+ }
