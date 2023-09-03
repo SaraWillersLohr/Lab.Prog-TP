@@ -1,6 +1,4 @@
-#include <iostream>
-#include <string>
-using namespace std;
+#include <bits/stdc++.h>
 
  
 string InsertarPunto (string frase);
