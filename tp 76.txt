@@ -1,0 +1,217 @@
+#include <iostream>
+#include <vector>
+#include <ctime>
+#include <cstdlib>
+
+ using namespace std;
+
+ 
+vector < int >GenerarVector (int n = 100);
+
+vector < int >GenerarVector2 (const vector < int >&A);
+
+vector < int >VectorC (const vector < int >&A);
+
+int Promedio (const vector < int >&vec);
+
+int Multiplos2y3 (const vector < int >&vec);
+
+int Suma (const vector < int >&vec);
+
+void MostrarVector (const vector < int >&A);
+
+ 
+int
+main ()
+{
+  
+vector < int >A;
+  
+vector < int >B;
+  
+vector < int >C;
+  
+ 
+int N;
+  
+cout << "Ingrese cantidad de elementos de los vectores: ";
+  
+cin >> N;
+  
+ 
+A = GenerarVector (N);
+  
+cout << "A: " << endl;
+  
+MostrarVector (A);
+  
+B = GenerarVector2 (A);
+  
+cout << "B: " << endl;
+  
+MostrarVector (B);
+  
+C = VectorC (A);
+  
+cout << "C (A*2): " << endl;
+  
+MostrarVector (C);
+  
+cout << "El promedio de A es: " << Promedio (A) << endl;
+  
+cout << "Los mC:ltiplos de dos y tres en A son: " << Multiplos2y3 (A) <<
+    endl;
+  
+cout << "Suma de elementos de A: " << Suma (A) << endl;
+  
+ 
+ 
+ 
+ 
+ 
+return 0;
+
+}
+
+
+ 
+vector < int >
+GenerarVector (int N)
+{
+  
+vector < int >A;
+  
+srand (time (NULL));
+  
+ 
+for (int i = 0; i < N; i++)
+    {
+      
+int e = rand () % 32000;
+      
+A.push_back (e);
+    
+} 
+ 
+return A;
+
+}
+
+
+ 
+vector < int >
+GenerarVector2 (const vector < int >&A)
+{
+  
+vector < int >B;
+  
+srand (time (NULL));
+  
+int z = rand () % 32000;
+
+for (int elemento:A)
+    {
+      
+int e = elemento + z;
+      
+B.push_back (e);
+    
+} 
+ 
+return B;
+
+}
+
+
+ 
+int
+Promedio (const vector < int >&vec)
+{
+  
+int suma = 0;
+
+for (int elemento:vec)
+    {
+      
+suma += elemento;
+    
+} 
+return suma / vec.size ();
+
+}
+
+
+ 
+int
+Multiplos2y3 (const vector < int >&vec)
+{
+  
+int contador = 0;
+
+for (int elemento:vec)
+    {
+      
+if (elemento % 2 == 0 && elemento % 3 == 0)
+	{
+	  
+contador++;
+	
+}
+    
+}
+  
+return contador;
+
+}
+
+
+ 
+int
+Suma (const vector < int >&vec)
+{
+  
+int suma = 0;
+
+for (int elemento:vec)
+    {
+      
+suma += elemento;
+    
+} 
+return suma;
+
+}
+
+
+ 
+vector < int >
+VectorC (const vector < int >&A)
+{
+  
+vector < int >C;
+
+for (int elemento:A)
+    {
+      
+C.push_back (elemento * 2);
+    
+} 
+return C;
+
+}
+
+
+ 
+void
+MostrarVector (const vector < int >&A)
+{
+
+for (int elemento:A)
+    {
+      
+cout << elemento << " ";
+    
+} 
+cout << endl;
+
+} 
