@@ -2,150 +2,106 @@
 #include <vector>
 #include <cmath>
 
- using namespace std;
- 
- vector < int >getSeniales ();
- string obtenerSecuenciaCuadrantes (vector < int >seniales);
- int encontrarCiclosCompletos(string secuenciaCuadrantes);
- void calcularPorcentajeCuadrante (string secuenciaCuadrantes, char cuadrante);
- 
- 
- int
+using namespace std;
 
-main ()
+vector<int> getSeniales();
+string obtenerSecuenciaCuadrantes(vector<int> seniales);
+int encontrarCiclosCompletos(string secuenciaCuadrantes);
+void calcularPorcentajeCuadrante(string secuenciaCuadrantes, char cuadrante);
+
+void MostrarVector(vector<int> seniales, const string& secuenciaCuadrantes);
+int main()
 {
-  
-vector < int >seniales = getSeniales ();
-  
- 
-string secuenciaCuadrantes = obtenerSecuenciaCuadrantes (seniales);
-  
-cout << "Secuencia de cuadrantes: " << secuenciaCuadrantes << endl;
-  
- 
-int ciclosCompletos = encontrarCiclosCompletos (secuenciaCuadrantes);
+    vector<int> seniales = getSeniales();
 
-  
-cout << "Cantidad de ciclos completos: " << ciclosCompletos << endl;
-  
- 
-calcularPorcentajeCuadrante (secuenciaCuadrantes, 'N');
-  
-calcularPorcentajeCuadrante (secuenciaCuadrantes, 'O');
-  
-calcularPorcentajeCuadrante (secuenciaCuadrantes, 'S');
-  
-calcularPorcentajeCuadrante (secuenciaCuadrantes, 'E');
-  
- 
-return 0;
+    string secuenciaCuadrantes = obtenerSecuenciaCuadrantes(seniales);
 
+    cout << "Secuencia de cuadrantes: " << secuenciaCuadrantes << endl;
+
+    int ciclosCompletos = encontrarCiclosCompletos(secuenciaCuadrantes);
+
+    cout << "Cantidad de ciclos completos: " << ciclosCompletos << endl;
+
+    calcularPorcentajeCuadrante(secuenciaCuadrantes, 'N');
+    calcularPorcentajeCuadrante(secuenciaCuadrantes, 'O');
+    calcularPorcentajeCuadrante(secuenciaCuadrantes, 'S');
+    calcularPorcentajeCuadrante(secuenciaCuadrantes, 'E');
+
+
+    MostrarVector(seniales, secuenciaCuadrantes);
+
+    return 0;
 }
 
- 
-vector < int >
-getSeniales ()
+vector<int> getSeniales()
 {
-  
-vector < int >seniales;
-  
-int senial;
-  
- 
-cout <<
-    "Ingrese las señales (ingrese un número negativo para detenerse): ";
-  
-while (cin >> senial && senial >= 0)
+    vector<int> seniales;
+    int senial;
+
+    cout << "Ingrese las señales (ingrese un número negativo para detenerse): ";
+    while (cin >> senial && senial >= 0)
     {
-      
-seniales.push_back (senial);
-    
-}
-  
- 
-return seniales;
+        seniales.push_back(senial);
+    }
 
+    return seniales;
 }
 
-
- 
-string obtenerSecuenciaCuadrantes (vector < int >seniales)
+string obtenerSecuenciaCuadrantes(vector<int> seniales)
 {
-  
-string secuenciaCuadrantes;
-
-for (int angulo:seniales)
+    string secuenciaCuadrantes;
+    for (int angulo : seniales)
     {
-      
-if ((angulo > 45 && angulo < 135) || (angulo >= 315 && angulo < 360))
-	{
-	  
-secuenciaCuadrantes += 'N';
-	
-}
-      else
-	{
-	  
-if (angulo >= 0 && angulo < 45)
-	    {
-	      
-secuenciaCuadrantes += 'E';
-	    
-}
-	  else
-	    {
-	      
-if (angulo >= 135 && angulo < 225)
-		{
-		  
-secuenciaCuadrantes += 'O';
-		
-}
-	      else
-		{
-		  
-if (angulo >= 225 && angulo < 315)
-		    {
-		      
-secuenciaCuadrantes += 'S';
-		    
-}
-		  else
-		    {
-		      
-cout << "Angulo no válido: " << angulo << endl;
-		    
-}
-		
-}
-	    
-}
-	
-}
-    
- 
-}
-  
-return secuenciaCuadrantes;
-
+        if ((angulo >= 45 && angulo < 135) || (angulo >= 315 && angulo < 360))
+        {
+            secuenciaCuadrantes += 'N';
+        }
+        else
+        {
+            if (angulo >= 0 && angulo < 45)
+            {
+                secuenciaCuadrantes += 'E';
+            }
+            else
+            {
+                if (angulo >= 135 && angulo < 225)
+                {
+                    secuenciaCuadrantes += 'O';
+                }
+                else
+                {
+                    if (angulo >= 225 && angulo < 315)
+                    {
+                        secuenciaCuadrantes += 'S';
+                    }
+                    else
+                    {
+                        cout << "Angulo no válido: " << angulo << endl;
+                    }
+                }
+            }
+        }
+    }
+    return secuenciaCuadrantes;
 }
 
-
-
-int encontrarCiclosCompletos(string secuenciaCuadrantes) {
+int encontrarCiclosCompletos(string secuenciaCuadrantes)
+{
     string secuenciaDuplicada = secuenciaCuadrantes + secuenciaCuadrantes;
 
     int ciclos = 0;
     size_t pos = 0;
 
-    while ((pos = secuenciaDuplicada.find("NESO", pos)) != -1) {
+    while ((pos = secuenciaDuplicada.find("NESO", pos)) != -1)
+    {
         ciclos++;
         pos += 4;
     }
 
     pos = 0;
 
-    while ((pos = secuenciaDuplicada.find("OSEN", pos)) != -1) {
+    while ((pos = secuenciaDuplicada.find("OSEN", pos)) != -1)
+    {
         ciclos++;
         pos += 4;
     }
@@ -153,39 +109,43 @@ int encontrarCiclosCompletos(string secuenciaCuadrantes) {
     return ciclos;
 }
 
-
-
- 
-void
-calcularPorcentajeCuadrante (string secuenciaCuadrantes, char cuadrante)
+void calcularPorcentajeCuadrante(string secuenciaCuadrantes, char cuadrante)
 {
-  
-int total = secuenciaCuadrantes.length ();
-  
-int ocurrencias = 0;
+    int total = secuenciaCuadrantes.length();
+    int ocurrencias = 0;
 
- 
-for (char c:secuenciaCuadrantes)
+    for (char c : secuenciaCuadrantes)
     {
-      
-if (c == cuadrante)
-	{
-	  
-ocurrencias++;
-	
-}
-    
-}
-  
- 
-float porcentaje = (ocurrencias * 100.0) / total;
-  
- 
-cout << "Porcentaje de ocurrencias de " << cuadrante << ": " <<
-    porcentaje << "%" << endl;
+        if (c == cuadrante)
+        {
+            ocurrencias++;
+        }
+    }
 
-} 
- 
+    float porcentaje = (ocurrencias * 100.0) / total;
+
+    cout << "Porcentaje de ocurrencias de " << cuadrante << ": " << porcentaje << "%" << endl;
+}
+
+
+
+void MostrarVector(vector<int> seniales, const string &secuenciaCuadrantes)
+{
+
+    int i;
+    for (i = 0; i < seniales.size(); i++)
+    {
+
+        cout << seniales[i] << "|";
+    }
+    cout << endl;
+
+    for (char cuadrante : secuenciaCuadrantes)
+    {
+        cout << cuadrante << " | ";
+    }
+    cout << endl;
+}
 
 
 
