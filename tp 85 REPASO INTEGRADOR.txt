@@ -9,7 +9,7 @@ string obtenerSecuenciaCuadrantes(vector<int> seniales);
 int encontrarCiclosCompletos(string secuenciaCuadrantes);
 void calcularPorcentajeCuadrante(string secuenciaCuadrantes, char cuadrante);
 
-void MostrarVector(vector<int> seniales, const string& secuenciaCuadrantes);
+void MostrarVector(vector<int> seniales, string secuenciaCuadrantes);
 int main()
 {
     vector<int> seniales = getSeniales();
