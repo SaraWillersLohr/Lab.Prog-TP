@@ -1,0 +1,75 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class CPersona {
+private:
+    string nombre;
+    int edad;
+    string DNI;
+    char genero;
+    double peso;
+    double altura;
+
+public:
+    CPersona(string nombre = "", int edad = 0, string DNI = "", char genero = 'H', double peso = 0, double altura = 0) {
+        nombre = nombre;
+        edad = edad;
+        DNI = DNI;
+        genero = genero;
+        peso = peso;
+        altura = altura;
+    }
+
+    double calcularIMC() {
+        double imc = peso / (altura * altura);
+        if (imc < 20) {
+            return -1;
+        } else if (imc >= 20 && imc <= 25) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
+    bool esMayorDeEdad() {
+        return edad >= 18;
+    }
+
+    void comprobarGenero(char genero) {
+        genero = (genero == 'M' || genero == 'm') ? 'M' : 'H';
+    }
+
+    void setNombre(string nombre) {
+        nombre = nombre;
+    }
+
+    void setEdad(int edad) {
+        edad = edad;
+    }
+
+    void setDNI(string DNI) {
+        DNI = DNI;
+    }
+
+    void setGenero(char genero) {
+        genero = genero;
+    }
+
+    void setPeso(double peso) {
+        peso = peso;
+    }
+
+    void setAltura(double altura) {
+        altura = altura;
+    }
+};
+
+int main() {
+    CPersona persona("Juan", 34, "12345678", 'H', 80, 1.74);
+    cout << "IMC: " << persona.calcularIMC() << endl;
+    cout << "¿Es mayor de edad? " << (persona.esMayorDeEdad() ? "Si" : "No") << endl;
+
+    return 0;
+}
